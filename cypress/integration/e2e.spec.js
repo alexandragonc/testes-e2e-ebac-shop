@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
-import EnderecoPage from '../support/page-objects/endereco.page'
+import EnderecoPage  from "../support/page_objects/endereco.page"
 const dados = require('../fixtures/enderecos.json')
+
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
         Quero acessar a Loja EBAC 
@@ -13,7 +14,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     beforeEach(() => {
         cy.visit('/')
     });
-    it('Adicionar produtos ao carrinho', () => {
+    it('Adicionar produtos ao carrinho e fazer checkout', () => {
 
         cy.fixture('produtos').then(produto => {
             cy.visit('/produtos')
@@ -44,11 +45,25 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
                 produto[3].quantidade)
         });
         cy.get('.woocommerce-message > .button').click()
-    });
-    
-    it('Preencher dados do checkout', () => {
-        cy.get('.woocommerce-message > .button').click()
-    });
+        cy.get('.checkout-button').click()
 
+        EnderecoPage.enderecoFaturamento = (dados[0].nome,
+            dados[0].sobrenome,
+            dados[0].empresa,
+            dados[0].pais,
+            dados[0].endereco,
+            dados[0].numero,
+            dados[0].cidade,
+            dados[0].estado,
+            dados[0].cep,
+            dados[0].telefone,
+            dados[0].email)
+
+            //cy.get('#terms').check()
+            //cy.get('#place_order').click()
+
+
+
+    });
 
 })
