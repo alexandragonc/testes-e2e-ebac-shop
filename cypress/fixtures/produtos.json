@@ -1,0 +1,26 @@
+[
+    {
+        "nome": "Abominable Hoodie",
+        "tamanho": "S",
+        "cor": "Blue",
+        "quantidade": "2"
+    },
+    {
+        "nome": "Argus All-Weather Tank",
+        "tamanho": "XS",
+        "cor": "Gray",
+        "quantidade": "1"
+    },
+    {
+        "nome": "Atlas Fitness Tank",
+        "tamanho": "M",
+        "cor": "Blue",
+        "quantidade": "2"
+    },
+    {
+        "nome": "Aero Daily Fitness Tee",
+        "tamanho": "XL",
+        "cor": "Black",
+        "quantidade": "3"
+    }
+]
