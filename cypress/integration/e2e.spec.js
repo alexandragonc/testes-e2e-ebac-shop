@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import EnderecoPage  from "../support/page_objects/endereco.page"
+import EnderecoPage from "../support/page_objects/endereco.page.js"
 const dados = require('../fixtures/enderecos.json')
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
@@ -47,7 +47,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('.woocommerce-message > .button').click()
         cy.get('.checkout-button').click()
 
-        EnderecoPage.enderecoFaturamento = (dados[0].nome,
+        EnderecoPage.enderecoFaturamento(dados[0].nome,
             dados[0].sobrenome,
             dados[0].empresa,
             dados[0].pais,
@@ -59,11 +59,11 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
             dados[0].telefone,
             dados[0].email)
 
-            //cy.get('#terms').check()
-            //cy.get('#place_order').click()
+            cy.get('#terms').check()
+            cy.get('#place_order').click()
 
-
-
+            cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')
+            
     });
 
 })

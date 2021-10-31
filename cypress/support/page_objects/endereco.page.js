@@ -1,4 +1,4 @@
-export class EnderecoPage {
+class EnderecoPage {
 
     enderecoFaturamento(nome, sobrenome, empresa, pais, endereco, numero, cidade, estado, cep, telefone, email){
         cy.get('#billing_first_name').type(nome)
